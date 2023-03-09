@@ -20,4 +20,4 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Run tests
-      run: node .github/workflows/app.js
+      run: npm test
