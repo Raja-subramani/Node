@@ -24,9 +24,3 @@ jobs:
     - name: Run Tests
       run: npm app
 
-    - name: Build Docker Image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: your-docker-username/node-app:latest
