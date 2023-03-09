@@ -22,7 +22,7 @@ jobs:
 #       run: npm ci
 
     - name: Run Tests
-      run: npm test
+      run: npm app
 
     - name: Build Docker Image
       uses: docker/build-push-action@v2
