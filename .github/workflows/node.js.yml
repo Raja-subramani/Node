@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI with Docker
 
 on:
   push:
@@ -12,18 +12,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-  
 
     - name: Use Node.js 14.x
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
 
-#     - name: Install Dependencies
-#       run: npm install
+    - name: Install Dependencies
+      run: npm ci
 
-#     - name: Build  
-#       run: npm run build 
+    - name: Run Tests
+      run: npm app.js
 
-    - name: Test
-      run: node app
+    - name: Build Docker Image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: your-docker-username/node-app:latest
